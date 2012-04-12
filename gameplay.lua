@@ -58,7 +58,7 @@ function handleGameplayInput(player, terrain, dt)
       local y = math.ceil(cursor.y)
       if x - 1 >= player.x + player.width / 2 or x <= player.x - player.width / 2
       or y - 1 >= player.y or y <= player.y - player.height then
-        if player.inventory:checkCurrent().id < 1000 then
+        if player.inventory:checkCurrent().id and player.inventory:checkCurrent().id < 1000 then
           terrain:setBlock(y, x, player.inventory:takeCurrent().id)
           placeTime = 0
         end
